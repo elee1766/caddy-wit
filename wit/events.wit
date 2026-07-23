@@ -1,0 +1,14 @@
+/// Event handler (= caddyevents handler modules, `events.handlers.*`).
+interface event-handler {
+  use lifecycle.{instance};
+  use types.{event};
+
+  variant handler-error {
+    /// Abort the event (= caddyevents.ErrAborted).
+    aborted,
+    /// Any other failure.
+    message(string),
+  }
+
+  handle: func(inst: borrow<instance>, evt: event) -> result<_, handler-error>;
+}

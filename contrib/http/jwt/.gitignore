@@ -1,0 +1,6 @@
+# Rust build output
+target/
+# Legacy TinyGo/wasm build junk
+*.wat
+*.wasm.map
+plugin_*.wasm

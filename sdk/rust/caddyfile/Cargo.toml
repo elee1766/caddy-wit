@@ -1,0 +1,8 @@
+[package]
+name = "caddy-wit-caddyfile"
+version = "0.1.0"
+edition = "2021"
+description = "Caddyfile token Dispenser for caddy-wit Rust plugins"
+publish = false
+
+[lib]

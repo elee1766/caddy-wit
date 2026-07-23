@@ -1,0 +1,30 @@
+# Build artifacts
+/cmd/caddy/caddy
+*.exe
+
+# Go
+*.test
+*.out
+coverage.html
+
+# Rust
+target/
+Cargo.lock
+!sdk/rust/*/Cargo.lock
+
+# TinyGo
+*.wasm.tmp
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# OS
+Thumbs.db
+
+# Caddy runtime
+autosave.json

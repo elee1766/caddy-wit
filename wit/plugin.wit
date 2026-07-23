@@ -1,0 +1,96 @@
+/// Core guest interfaces every plugin must export: identity and lifecycle.
+
+/// Plugin self-description. The host calls `describe` once at load time to
+/// discover which Caddy modules this binary provides, and registers a
+/// dynamic Caddy module for each declared ID.
+interface manifest {
+  enum directive-position {
+    before,
+    after,
+  }
+
+  /// Caddyfile directive ordering, mirroring Caddy's
+  /// httpcaddyfile.RegisterDirectiveOrder: a position relative to a
+  /// directive from the STANDARD distribution (Caddy deliberately forbids
+  /// ordering relative to other plugins, since plugin load order is not
+  /// guaranteed). Users can always override with the `order` global option.
+  record caddyfile-order {
+    position: directive-position,
+    /// A standard-distribution directive name, e.g. "respond",
+    /// "file_server", "header".
+    relative-to: string,
+  }
+
+  record module-decl {
+    /// Full Caddy module ID, e.g. `http.handlers.foo`. The namespace
+    /// prefix determines which extension-point interface the host will
+    /// invoke for instances of this module:
+    ///
+    ///   http.handlers.*     -> http-handler
+    ///   http.matchers.*     -> http-matcher
+    ///   caddy.fs.*          -> fs
+    ///   tls.issuance.*      -> tls-issuer
+    ///   tls.certificates.*  -> tls-cert-loader
+    ///   caddy.storage.*     -> storage-provider
+    ///   events.handlers.*   -> event-handler
+    ///   dns.providers.*     -> dns-provider
+    ///   http.reverse_proxy.upstreams.* -> upstream-source
+    id: string,
+    /// Optional human-readable description.
+    docs: option<string>,
+    /// For `http.handlers.*` modules that also export the config
+    /// interface: where this module's Caddyfile directive should be
+    /// ordered. Absent = host default (before file_server).
+    caddyfile-order: option<caddyfile-order>,
+  }
+
+  record plugin-info {
+    /// Plugin name, for diagnostics.
+    name: string,
+    version: option<string>,
+    modules: list<module-decl>,
+  }
+
+  describe: func() -> plugin-info;
+}
+
+/// Module instance lifecycle, mirroring caddy.Provisioner / caddy.Validator /
+/// caddy.CleanerUpper. The host creates one `instance` per provisioned
+/// Caddy module and passes it back into every extension-point call.
+interface lifecycle {
+  use types.{json};
+
+  resource instance {
+    /// Provision a new instance of the module with the given ID from its
+    /// JSON config (= caddy.Provisioner).
+    provision: static func(module-id: string, config: json) -> result<instance, string>;
+
+    /// = caddy.Validator.
+    validate: func() -> result<_, string>;
+
+    /// = caddy.CleanerUpper. Called when the config is unloaded.
+    cleanup: func();
+  }
+}
+
+/// Custom Caddyfile syntax (= caddyfile.Unmarshaler).
+///
+/// The host tokenizes the directive's segment of the Caddyfile and hands the
+/// tokens to the guest, which returns the module's JSON config. This lets
+/// wasm plugins define first-class Caddyfile directives without shipping a
+/// full dispenser across the boundary.
+interface config {
+  use types.{json};
+
+  record token {
+    file: string,
+    line: u32,
+    text: string,
+    /// True if the token was quoted (or heredoc'd) in the Caddyfile.
+    /// Needed to distinguish a literal "{" argument from a block brace
+    /// (mirrors caddyfile.Token.Quoted()).
+    quoted: bool,
+  }
+
+  unmarshal-caddyfile: func(module-id: string, tokens: list<token>) -> result<json, string>;
+}

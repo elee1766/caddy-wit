@@ -1,0 +1,37 @@
+/// DNS provider (= libdns-style providers via `dns.providers.*` modules).
+///
+/// This unlocks the largest Caddy plugin category — ACME DNS-01 challenge
+/// providers — as sandboxed wasm: a provider is pure API glue over the
+/// registrar's HTTP API, so a guest needs only this export plus the
+/// `host-http` import (permission: "http").
+///
+/// Semantics mirror libdns (https://github.com/libdns/libdns): all
+/// operations are scoped to a zone (a fully-qualified domain name ending in
+/// a dot), record names are relative to the zone, and each call returns the
+/// records that were actually affected.
+interface dns-provider {
+  use lifecycle.{instance};
+
+  record dns-record {
+    /// RR type, e.g. "TXT", "A", "CNAME".
+    rr-type: string,
+    /// Name relative to the zone (e.g. "_acme-challenge.www").
+    name: string,
+    value: string,
+    ttl-seconds: u32,
+    /// Priority for types that use it (MX, SRV, ...).
+    priority: option<u16>,
+  }
+
+  /// = libdns.RecordGetter.
+  get-records: func(inst: borrow<instance>, zone: string) -> result<list<dns-record>, string>;
+
+  /// = libdns.RecordAppender.
+  append-records: func(inst: borrow<instance>, zone: string, records: list<dns-record>) -> result<list<dns-record>, string>;
+
+  /// = libdns.RecordSetter.
+  set-records: func(inst: borrow<instance>, zone: string, records: list<dns-record>) -> result<list<dns-record>, string>;
+
+  /// = libdns.RecordDeleter.
+  delete-records: func(inst: borrow<instance>, zone: string, records: list<dns-record>) -> result<list<dns-record>, string>;
+}

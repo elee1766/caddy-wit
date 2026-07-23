@@ -1,0 +1,35 @@
+/// Filesystem provider (= io/fs.FS via caddy.fs modules, `caddy.fs.*`).
+///
+/// Lets wasm plugins back Caddy's file server (or any module that takes an
+/// `fs` config) with arbitrary sources: object storage, databases, archives,
+/// generated content, ...
+interface fs {
+  use lifecycle.{instance};
+  use types.{epoch-ms};
+
+  record file-info {
+    name: string,
+    size: u64,
+    /// Unix-style mode bits.
+    mode: u32,
+    mod-time: epoch-ms,
+    dir: bool,
+  }
+
+  /// An open file, owned by the guest.
+  resource file {
+    /// Read up to `max` bytes. Returns bytes and whether EOF was reached.
+    read: func(max: u64) -> result<tuple<list<u8>, bool>, string>;
+
+    /// Seek within the file. whence: 0 = start, 1 = current, 2 = end.
+    /// Optional: guests may return an error, which disables HTTP range
+    /// requests for files from this provider.
+    seek: func(offset: s64, whence: u8) -> result<u64, string>;
+
+    stat: func() -> result<file-info, string>;
+  }
+
+  open: func(inst: borrow<instance>, path: string) -> result<file, string>;
+  stat: func(inst: borrow<instance>, path: string) -> result<file-info, string>;
+  read-dir: func(inst: borrow<instance>, path: string) -> result<list<file-info>, string>;
+}

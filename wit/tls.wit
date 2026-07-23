@@ -1,0 +1,39 @@
+/// TLS extension points.
+
+/// Certificate issuer (= certmagic.Issuer, for modules in `tls.issuance.*`).
+///
+/// Combined with `host-storage`, this is enough to implement custom CAs,
+/// internal PKI bridges, or exotic ACME-alikes entirely in wasm.
+interface tls-issuer {
+  use lifecycle.{instance};
+  use types.{json};
+
+  record issued-certificate {
+    /// PEM-encoded certificate (chain).
+    certificate-pem: list<u8>,
+    /// Optional metadata stored alongside the certificate.
+    metadata: option<json>,
+  }
+
+  /// A unique, storage-safe key identifying this issuer configuration
+  /// (= certmagic.Issuer.IssuerKey).
+  issuer-key: func(inst: borrow<instance>) -> string;
+
+  /// Issue a certificate for the given DER-encoded CSR.
+  issue: func(inst: borrow<instance>, csr-der: list<u8>) -> result<issued-certificate, string>;
+}
+
+/// Certificate loader (= caddytls.CertificateLoader, for modules in
+/// `tls.certificates.*`).
+interface tls-cert-loader {
+  use lifecycle.{instance};
+
+  record certificate-key-pair {
+    certificate-pem: list<u8>,
+    key-pem: list<u8>,
+    /// Arbitrary tags used to select certificates.
+    tags: list<string>,
+  }
+
+  load-certificates: func(inst: borrow<instance>) -> result<list<certificate-key-pair>, string>;
+}

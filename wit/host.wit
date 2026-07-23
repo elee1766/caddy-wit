@@ -1,0 +1,196 @@
+/// Host-provided capabilities (imports, implemented by Caddy).
+
+/// Structured logging into the plugin's zap logger.
+///
+/// The host creates a named logger per provisioned module, so log lines are
+/// attributed just like native Caddy modules.
+interface log {
+  enum level {
+    debug,
+    info,
+    warn,
+    error,
+  }
+
+  /// Log a message with optional structured key/value fields.
+  log: func(lvl: level, msg: string, fields: list<tuple<string, string>>);
+}
+
+/// The global Caddy replacer (placeholder resolution outside of a request
+/// context). Request-scoped replacement is available on the `request`
+/// resource in `http-types`.
+interface replacer {
+  /// Replace all placeholders in the input, substituting `empty` for
+  /// placeholders that resolve to an empty value.
+  replace-all: func(input: string, empty: string) -> string;
+
+  /// Resolve a single placeholder key.
+  get: func(key: string) -> option<string>;
+}
+
+/// Access to Caddy's configured storage (mirrors `certmagic.Storage`).
+///
+/// This lets plugins persist state in whatever storage backend the Caddy
+/// instance is configured with (filesystem, consul, redis, ...), including
+/// cluster-safe locking.
+interface host-storage {
+  use types.{key-info};
+
+  store: func(key: string, value: list<u8>) -> result<_, string>;
+  load: func(key: string) -> result<list<u8>, string>;
+  delete: func(key: string) -> result<_, string>;
+  exists: func(key: string) -> bool;
+  list-keys: func(prefix: string, recursive: bool) -> result<list<string>, string>;
+  stat: func(key: string) -> result<key-info, string>;
+
+  /// Acquire a cluster-wide lock. Blocks until acquired or the host's
+  /// context is cancelled.
+  lock: func(name: string) -> result<_, string>;
+  unlock: func(name: string) -> result<_, string>;
+}
+
+/// Emit events onto Caddy's event bus (mirrors `caddyevents.App.Emit`).
+interface host-events {
+  use types.{json};
+
+  emit: func(name: string, data: json) -> result<_, string>;
+}
+
+/// In-memory key-value store scoped to the plugin. Values are shared across
+/// all pool slots (wasm instances) of the same provisioned module — unlike
+/// guest-side linear memory, which is per-slot. NOT durable (lost on config
+/// reload); for durable state use `host-storage`.
+///
+/// Typical use cases: rate-limiter counters (via `increment`), DNS record
+/// caches, session data, circuit-breaker state, connection pools of
+/// metadata.
+///
+/// No permission required (it's sandboxed per plugin — one plugin cannot
+/// see another's keys).
+interface host-kv {
+  /// Get a value by key. Returns none if absent or expired.
+  get: func(key: string) -> option<list<u8>>;
+
+  /// Set a key to a value. `ttl-ms` = time-to-live in milliseconds; none
+  /// means no expiration (lives until delete or config reload).
+  set: func(key: string, value: list<u8>, ttl-ms: option<u64>);
+
+  /// Delete a key. No-op if absent.
+  delete: func(key: string);
+
+  /// Atomic increment (creates with value `delta` if absent). Returns the
+  /// value after incrementing. `ttl-ms` applies only on creation (existing
+  /// TTL is preserved on increment). Useful for rate limiting.
+  increment: func(key: string, delta: s64, ttl-ms: option<u64>) -> s64;
+
+  /// Check existence without reading the value.
+  exists: func(key: string) -> bool;
+}
+
+/// Dynamic upstream source (= reverseproxy.UpstreamSource, for modules in
+/// `http.reverse_proxy.upstreams.*`).
+///
+/// This lets wasm plugins act as dynamic backends for Caddy's reverse_proxy:
+/// given an incoming request, return the list of backend addresses to proxy
+/// to. Combined with host-http and host-kv, a plugin can poll a service
+/// registry and cache the results with TTL-based refresh.
+interface upstream-source {
+  use lifecycle.{instance};
+  use http-types.{request};
+
+  record upstream {
+    /// Network address to dial, e.g. "192.168.1.10:8080" or "unix//tmp/app.sock".
+    dial: string,
+    /// Optional maximum concurrent requests to this upstream. 0 = unlimited.
+    max-requests: u32,
+  }
+
+  /// Called by reverse_proxy on every request to get the current backends.
+  /// The request handle provides access to Host, path, headers, etc. so
+  /// the plugin can route by request attributes.
+  get-upstreams: func(inst: borrow<instance>, req: borrow<request>) -> result<list<upstream>, string>;
+}
+
+/// HTTP request/response resources, owned by the host.
+///
+/// These are handles into the live `*http.Request` and
+/// `http.ResponseWriter` — reads and writes go straight through to Caddy
+/// with no copying of the full request across the boundary.
+interface http-types {
+  use types.{plugin-error};
+
+  resource request {
+    method: func() -> string;
+    /// Full request URI (path?query).
+    uri: func() -> string;
+    path: func() -> string;
+    query: func() -> string;
+    /// e.g. "HTTP/1.1", "HTTP/2.0".
+    protocol: func() -> string;
+    host: func() -> string;
+    remote-addr: func() -> string;
+
+    /// All header values, flattened.
+    headers: func() -> list<tuple<string, string>>;
+    /// Values for a single header name (canonicalized).
+    header: func(name: string) -> list<string>;
+    set-header: func(name: string, value: string);
+    add-header: func(name: string, value: string);
+    remove-header: func(name: string);
+
+    /// Rewrite the request URI (affects downstream handlers).
+    set-uri: func(uri: string);
+    set-method: func(method: string);
+
+    /// Read up to `max` bytes of the request body. Returns the bytes read
+    /// and whether the body has reached EOF.
+    read-body: func(max: u64) -> result<tuple<list<u8>, bool>, string>;
+
+    /// Replace placeholders using the request-scoped replacer
+    /// (e.g. `{http.request.host}`).
+    replace: func(input: string, empty: string) -> string;
+
+    /// Get/set request-scoped variables (caddyhttp vars middleware),
+    /// values serialized as JSON.
+    get-var: func(key: string) -> option<string>;
+    set-var: func(key: string, value: string);
+  }
+
+  resource response-writer {
+    /// Set a response header. Must be called before write-status/write.
+    set-header: func(name: string, value: string);
+    add-header: func(name: string, value: string);
+    remove-header: func(name: string);
+
+    /// Write the status code. Implicitly 200 on first write otherwise.
+    write-status: func(status: u16);
+
+    /// Write body bytes. Returns bytes written.
+    write: func(data: list<u8>) -> result<u64, string>;
+
+    flush: func();
+  }
+
+  /// A fully-buffered downstream response, produced by `next-buffered`.
+  /// This is what enables response-rewriting middleware (replace-response,
+  /// caching, compression): inspect status/headers/body, then write a
+  /// (possibly modified) response through the real `response-writer`.
+  resource buffered-response {
+    status: func() -> u16;
+    headers: func() -> list<tuple<string, string>>;
+    body: func() -> list<u8>;
+  }
+
+  /// Invoke the next handler in the middleware chain for this request.
+  /// This is what makes wasm handlers true middleware rather than
+  /// terminal-only handlers.
+  next: func(req: borrow<request>, resp: borrow<response-writer>) -> result<_, plugin-error>;
+
+  /// Invoke the next handler with a recording response writer instead of
+  /// the real one. Nothing is sent to the client; the guest receives the
+  /// buffered response and is responsible for writing output to the real
+  /// `response-writer` (headers from the buffered response are NOT copied
+  /// automatically). The buffered body is capped by the host (default
+  /// 16 MiB); larger downstream responses fail the call.
+  next-buffered: func(req: borrow<request>) -> result<buffered-response, plugin-error>;
+}

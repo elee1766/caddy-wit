@@ -1,0 +1,80 @@
+/// Worlds. Every plugin includes `caddy-base`; the per-kind worlds add one
+/// extension point each. A single binary may implement several kinds — write
+/// your own world in your project that `include`s the ones you need, or use
+/// `full-plugin`. The host does not require a specific world: it detects
+/// which interfaces a binary exports and wires up only those.
+
+world caddy-base {
+  import log;
+  import replacer;
+  import host-storage;
+  import host-events;
+  import host-kv;
+  // Network imports are always linkable but permission-gated at runtime by
+  // the plugin manifest ("permissions": ["http", "tcp"]).
+  import host-http;
+  import host-tcp;
+
+  export manifest;
+  export lifecycle;
+  export config;
+}
+
+world http-handler-plugin {
+  include caddy-base;
+  export http-handler;
+}
+
+world http-matcher-plugin {
+  include caddy-base;
+  export http-matcher;
+}
+
+world fs-plugin {
+  include caddy-base;
+  export fs;
+}
+
+world tls-issuer-plugin {
+  include caddy-base;
+  export tls-issuer;
+}
+
+world tls-cert-loader-plugin {
+  include caddy-base;
+  export tls-cert-loader;
+}
+
+world storage-plugin {
+  include caddy-base;
+  export storage-provider;
+}
+
+world event-plugin {
+  include caddy-base;
+  export event-handler;
+}
+
+world dns-provider-plugin {
+  include caddy-base;
+  export dns-provider;
+}
+
+world upstream-source-plugin {
+  include caddy-base;
+  export upstream-source;
+}
+
+/// Everything at once; mainly useful for reference and host testing.
+world full-plugin {
+  include caddy-base;
+  export http-handler;
+  export http-matcher;
+  export fs;
+  export tls-issuer;
+  export tls-cert-loader;
+  export storage-provider;
+  export event-handler;
+  export dns-provider;
+  export upstream-source;
+}

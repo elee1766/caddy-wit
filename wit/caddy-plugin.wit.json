@@ -1,0 +1,3861 @@
+{
+  "worlds": [
+    {
+      "name": "caddy-base",
+      "imports": {
+        "interface-0": {
+          "interface": {
+            "id": 0
+          }
+        },
+        "interface-1": {
+          "interface": {
+            "id": 1
+          }
+        },
+        "interface-6": {
+          "interface": {
+            "id": 6
+          }
+        },
+        "interface-7": {
+          "interface": {
+            "id": 7
+          }
+        },
+        "interface-8": {
+          "interface": {
+            "id": 8
+          }
+        },
+        "interface-2": {
+          "interface": {
+            "id": 2
+          }
+        },
+        "interface-3": {
+          "interface": {
+            "id": 3
+          }
+        },
+        "interface-4": {
+          "interface": {
+            "id": 4
+          }
+        }
+      },
+      "exports": {
+        "interface-5": {
+          "interface": {
+            "id": 5
+          }
+        },
+        "interface-10": {
+          "interface": {
+            "id": 10
+          }
+        },
+        "interface-17": {
+          "interface": {
+            "id": 17
+          }
+        }
+      },
+      "package": 0,
+      "docs": {
+        "contents": "Worlds. Every plugin includes `caddy-base`; the per-kind worlds add one\nextension point each. A single binary may implement several kinds — write\nyour own world in your project that `include`s the ones you need, or use\n`full-plugin`. The host does not require a specific world: it detects\nwhich interfaces a binary exports and wires up only those."
+      }
+    },
+    {
+      "name": "http-handler-plugin",
+      "imports": {
+        "interface-0": {
+          "interface": {
+            "id": 0
+          }
+        },
+        "interface-1": {
+          "interface": {
+            "id": 1
+          }
+        },
+        "interface-6": {
+          "interface": {
+            "id": 6
+          }
+        },
+        "interface-7": {
+          "interface": {
+            "id": 7
+          }
+        },
+        "interface-8": {
+          "interface": {
+            "id": 8
+          }
+        },
+        "interface-2": {
+          "interface": {
+            "id": 2
+          }
+        },
+        "interface-3": {
+          "interface": {
+            "id": 3
+          }
+        },
+        "interface-4": {
+          "interface": {
+            "id": 4
+          }
+        },
+        "interface-9": {
+          "interface": {
+            "id": 9
+          }
+        }
+      },
+      "exports": {
+        "interface-10": {
+          "interface": {
+            "id": 10
+          }
+        },
+        "interface-15": {
+          "interface": {
+            "id": 15
+          }
+        },
+        "interface-5": {
+          "interface": {
+            "id": 5
+          }
+        },
+        "interface-17": {
+          "interface": {
+            "id": 17
+          }
+        }
+      },
+      "package": 0
+    },
+    {
+      "name": "http-matcher-plugin",
+      "imports": {
+        "interface-0": {
+          "interface": {
+            "id": 0
+          }
+        },
+        "interface-1": {
+          "interface": {
+            "id": 1
+          }
+        },
+        "interface-6": {
+          "interface": {
+            "id": 6
+          }
+        },
+        "interface-7": {
+          "interface": {
+            "id": 7
+          }
+        },
+        "interface-8": {
+          "interface": {
+            "id": 8
+          }
+        },
+        "interface-2": {
+          "interface": {
+            "id": 2
+          }
+        },
+        "interface-3": {
+          "interface": {
+            "id": 3
+          }
+        },
+        "interface-4": {
+          "interface": {
+            "id": 4
+          }
+        },
+        "interface-9": {
+          "interface": {
+            "id": 9
+          }
+        }
+      },
+      "exports": {
+        "interface-10": {
+          "interface": {
+            "id": 10
+          }
+        },
+        "interface-16": {
+          "interface": {
+            "id": 16
+          }
+        },
+        "interface-5": {
+          "interface": {
+            "id": 5
+          }
+        },
+        "interface-17": {
+          "interface": {
+            "id": 17
+          }
+        }
+      },
+      "package": 0
+    },
+    {
+      "name": "fs-plugin",
+      "imports": {
+        "interface-0": {
+          "interface": {
+            "id": 0
+          }
+        },
+        "interface-1": {
+          "interface": {
+            "id": 1
+          }
+        },
+        "interface-6": {
+          "interface": {
+            "id": 6
+          }
+        },
+        "interface-7": {
+          "interface": {
+            "id": 7
+          }
+        },
+        "interface-8": {
+          "interface": {
+            "id": 8
+          }
+        },
+        "interface-2": {
+          "interface": {
+            "id": 2
+          }
+        },
+        "interface-3": {
+          "interface": {
+            "id": 3
+          }
+        },
+        "interface-4": {
+          "interface": {
+            "id": 4
+          }
+        }
+      },
+      "exports": {
+        "interface-10": {
+          "interface": {
+            "id": 10
+          }
+        },
+        "interface-13": {
+          "interface": {
+            "id": 13
+          }
+        },
+        "interface-5": {
+          "interface": {
+            "id": 5
+          }
+        },
+        "interface-17": {
+          "interface": {
+            "id": 17
+          }
+        }
+      },
+      "package": 0
+    },
+    {
+      "name": "tls-issuer-plugin",
+      "imports": {
+        "interface-0": {
+          "interface": {
+            "id": 0
+          }
+        },
+        "interface-1": {
+          "interface": {
+            "id": 1
+          }
+        },
+        "interface-6": {
+          "interface": {
+            "id": 6
+          }
+        },
+        "interface-7": {
+          "interface": {
+            "id": 7
+          }
+        },
+        "interface-8": {
+          "interface": {
+            "id": 8
+          }
+        },
+        "interface-2": {
+          "interface": {
+            "id": 2
+          }
+        },
+        "interface-3": {
+          "interface": {
+            "id": 3
+          }
+        },
+        "interface-4": {
+          "interface": {
+            "id": 4
+          }
+        }
+      },
+      "exports": {
+        "interface-10": {
+          "interface": {
+            "id": 10
+          }
+        },
+        "interface-19": {
+          "interface": {
+            "id": 19
+          }
+        },
+        "interface-5": {
+          "interface": {
+            "id": 5
+          }
+        },
+        "interface-17": {
+          "interface": {
+            "id": 17
+          }
+        }
+      },
+      "package": 0
+    },
+    {
+      "name": "tls-cert-loader-plugin",
+      "imports": {
+        "interface-0": {
+          "interface": {
+            "id": 0
+          }
+        },
+        "interface-1": {
+          "interface": {
+            "id": 1
+          }
+        },
+        "interface-6": {
+          "interface": {
+            "id": 6
+          }
+        },
+        "interface-7": {
+          "interface": {
+            "id": 7
+          }
+        },
+        "interface-8": {
+          "interface": {
+            "id": 8
+          }
+        },
+        "interface-2": {
+          "interface": {
+            "id": 2
+          }
+        },
+        "interface-3": {
+          "interface": {
+            "id": 3
+          }
+        },
+        "interface-4": {
+          "interface": {
+            "id": 4
+          }
+        }
+      },
+      "exports": {
+        "interface-10": {
+          "interface": {
+            "id": 10
+          }
+        },
+        "interface-20": {
+          "interface": {
+            "id": 20
+          }
+        },
+        "interface-5": {
+          "interface": {
+            "id": 5
+          }
+        },
+        "interface-17": {
+          "interface": {
+            "id": 17
+          }
+        }
+      },
+      "package": 0
+    },
+    {
+      "name": "storage-plugin",
+      "imports": {
+        "interface-0": {
+          "interface": {
+            "id": 0
+          }
+        },
+        "interface-1": {
+          "interface": {
+            "id": 1
+          }
+        },
+        "interface-6": {
+          "interface": {
+            "id": 6
+          }
+        },
+        "interface-7": {
+          "interface": {
+            "id": 7
+          }
+        },
+        "interface-8": {
+          "interface": {
+            "id": 8
+          }
+        },
+        "interface-2": {
+          "interface": {
+            "id": 2
+          }
+        },
+        "interface-3": {
+          "interface": {
+            "id": 3
+          }
+        },
+        "interface-4": {
+          "interface": {
+            "id": 4
+          }
+        }
+      },
+      "exports": {
+        "interface-10": {
+          "interface": {
+            "id": 10
+          }
+        },
+        "interface-18": {
+          "interface": {
+            "id": 18
+          }
+        },
+        "interface-5": {
+          "interface": {
+            "id": 5
+          }
+        },
+        "interface-17": {
+          "interface": {
+            "id": 17
+          }
+        }
+      },
+      "package": 0
+    },
+    {
+      "name": "event-plugin",
+      "imports": {
+        "interface-0": {
+          "interface": {
+            "id": 0
+          }
+        },
+        "interface-1": {
+          "interface": {
+            "id": 1
+          }
+        },
+        "interface-6": {
+          "interface": {
+            "id": 6
+          }
+        },
+        "interface-7": {
+          "interface": {
+            "id": 7
+          }
+        },
+        "interface-8": {
+          "interface": {
+            "id": 8
+          }
+        },
+        "interface-2": {
+          "interface": {
+            "id": 2
+          }
+        },
+        "interface-3": {
+          "interface": {
+            "id": 3
+          }
+        },
+        "interface-4": {
+          "interface": {
+            "id": 4
+          }
+        }
+      },
+      "exports": {
+        "interface-10": {
+          "interface": {
+            "id": 10
+          }
+        },
+        "interface-12": {
+          "interface": {
+            "id": 12
+          }
+        },
+        "interface-5": {
+          "interface": {
+            "id": 5
+          }
+        },
+        "interface-17": {
+          "interface": {
+            "id": 17
+          }
+        }
+      },
+      "package": 0
+    },
+    {
+      "name": "dns-provider-plugin",
+      "imports": {
+        "interface-0": {
+          "interface": {
+            "id": 0
+          }
+        },
+        "interface-1": {
+          "interface": {
+            "id": 1
+          }
+        },
+        "interface-6": {
+          "interface": {
+            "id": 6
+          }
+        },
+        "interface-7": {
+          "interface": {
+            "id": 7
+          }
+        },
+        "interface-8": {
+          "interface": {
+            "id": 8
+          }
+        },
+        "interface-2": {
+          "interface": {
+            "id": 2
+          }
+        },
+        "interface-3": {
+          "interface": {
+            "id": 3
+          }
+        },
+        "interface-4": {
+          "interface": {
+            "id": 4
+          }
+        }
+      },
+      "exports": {
+        "interface-10": {
+          "interface": {
+            "id": 10
+          }
+        },
+        "interface-11": {
+          "interface": {
+            "id": 11
+          }
+        },
+        "interface-5": {
+          "interface": {
+            "id": 5
+          }
+        },
+        "interface-17": {
+          "interface": {
+            "id": 17
+          }
+        }
+      },
+      "package": 0
+    },
+    {
+      "name": "upstream-source-plugin",
+      "imports": {
+        "interface-0": {
+          "interface": {
+            "id": 0
+          }
+        },
+        "interface-1": {
+          "interface": {
+            "id": 1
+          }
+        },
+        "interface-6": {
+          "interface": {
+            "id": 6
+          }
+        },
+        "interface-7": {
+          "interface": {
+            "id": 7
+          }
+        },
+        "interface-8": {
+          "interface": {
+            "id": 8
+          }
+        },
+        "interface-2": {
+          "interface": {
+            "id": 2
+          }
+        },
+        "interface-3": {
+          "interface": {
+            "id": 3
+          }
+        },
+        "interface-4": {
+          "interface": {
+            "id": 4
+          }
+        },
+        "interface-9": {
+          "interface": {
+            "id": 9
+          }
+        }
+      },
+      "exports": {
+        "interface-10": {
+          "interface": {
+            "id": 10
+          }
+        },
+        "interface-14": {
+          "interface": {
+            "id": 14
+          }
+        },
+        "interface-5": {
+          "interface": {
+            "id": 5
+          }
+        },
+        "interface-17": {
+          "interface": {
+            "id": 17
+          }
+        }
+      },
+      "package": 0
+    },
+    {
+      "name": "full-plugin",
+      "imports": {
+        "interface-0": {
+          "interface": {
+            "id": 0
+          }
+        },
+        "interface-1": {
+          "interface": {
+            "id": 1
+          }
+        },
+        "interface-6": {
+          "interface": {
+            "id": 6
+          }
+        },
+        "interface-7": {
+          "interface": {
+            "id": 7
+          }
+        },
+        "interface-8": {
+          "interface": {
+            "id": 8
+          }
+        },
+        "interface-2": {
+          "interface": {
+            "id": 2
+          }
+        },
+        "interface-3": {
+          "interface": {
+            "id": 3
+          }
+        },
+        "interface-4": {
+          "interface": {
+            "id": 4
+          }
+        },
+        "interface-9": {
+          "interface": {
+            "id": 9
+          }
+        }
+      },
+      "exports": {
+        "interface-10": {
+          "interface": {
+            "id": 10
+          }
+        },
+        "interface-15": {
+          "interface": {
+            "id": 15
+          }
+        },
+        "interface-16": {
+          "interface": {
+            "id": 16
+          }
+        },
+        "interface-13": {
+          "interface": {
+            "id": 13
+          }
+        },
+        "interface-19": {
+          "interface": {
+            "id": 19
+          }
+        },
+        "interface-20": {
+          "interface": {
+            "id": 20
+          }
+        },
+        "interface-18": {
+          "interface": {
+            "id": 18
+          }
+        },
+        "interface-12": {
+          "interface": {
+            "id": 12
+          }
+        },
+        "interface-11": {
+          "interface": {
+            "id": 11
+          }
+        },
+        "interface-14": {
+          "interface": {
+            "id": 14
+          }
+        },
+        "interface-5": {
+          "interface": {
+            "id": 5
+          }
+        },
+        "interface-17": {
+          "interface": {
+            "id": 17
+          }
+        }
+      },
+      "package": 0,
+      "docs": {
+        "contents": "Everything at once; mainly useful for reference and host testing."
+      }
+    }
+  ],
+  "interfaces": [
+    {
+      "name": "log",
+      "types": {
+        "level": 0
+      },
+      "functions": {
+        "log": {
+          "name": "log",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "lvl",
+              "type": 0
+            },
+            {
+              "name": "msg",
+              "type": "string"
+            },
+            {
+              "name": "fields",
+              "type": 2
+            }
+          ],
+          "docs": {
+            "contents": "Log a message with optional structured key/value fields."
+          }
+        }
+      },
+      "docs": {
+        "contents": "Host-provided capabilities (imports, implemented by Caddy).\nStructured logging into the plugin's zap logger.\n\nThe host creates a named logger per provisioned module, so log lines are\nattributed just like native Caddy modules."
+      },
+      "package": 0
+    },
+    {
+      "name": "replacer",
+      "types": {},
+      "functions": {
+        "replace-all": {
+          "name": "replace-all",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "input",
+              "type": "string"
+            },
+            {
+              "name": "empty",
+              "type": "string"
+            }
+          ],
+          "result": "string",
+          "docs": {
+            "contents": "Replace all placeholders in the input, substituting `empty` for\nplaceholders that resolve to an empty value."
+          }
+        },
+        "get": {
+          "name": "get",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "result": 3,
+          "docs": {
+            "contents": "Resolve a single placeholder key."
+          }
+        }
+      },
+      "docs": {
+        "contents": "The global Caddy replacer (placeholder resolution outside of a request\ncontext). Request-scoped replacement is available on the `request`\nresource in `http-types`."
+      },
+      "package": 0
+    },
+    {
+      "name": "host-kv",
+      "types": {},
+      "functions": {
+        "get": {
+          "name": "get",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "result": 5,
+          "docs": {
+            "contents": "Get a value by key. Returns none if absent or expired."
+          }
+        },
+        "set": {
+          "name": "set",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": 4
+            },
+            {
+              "name": "ttl-ms",
+              "type": 6
+            }
+          ],
+          "docs": {
+            "contents": "Set a key to a value. `ttl-ms` = time-to-live in milliseconds; none\nmeans no expiration (lives until delete or config reload)."
+          }
+        },
+        "delete": {
+          "name": "delete",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "docs": {
+            "contents": "Delete a key. No-op if absent."
+          }
+        },
+        "increment": {
+          "name": "increment",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "delta",
+              "type": "s64"
+            },
+            {
+              "name": "ttl-ms",
+              "type": 6
+            }
+          ],
+          "result": "s64",
+          "docs": {
+            "contents": "Atomic increment (creates with value `delta` if absent). Returns the\nvalue after incrementing. `ttl-ms` applies only on creation (existing\nTTL is preserved on increment). Useful for rate limiting."
+          }
+        },
+        "exists": {
+          "name": "exists",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "result": "bool",
+          "docs": {
+            "contents": "Check existence without reading the value."
+          }
+        }
+      },
+      "docs": {
+        "contents": "In-memory key-value store scoped to the plugin. Values are shared across\nall pool slots (wasm instances) of the same provisioned module — unlike\nguest-side linear memory, which is per-slot. NOT durable (lost on config\nreload); for durable state use `host-storage`.\n\nTypical use cases: rate-limiter counters (via `increment`), DNS record\ncaches, session data, circuit-breaker state, connection pools of\nmetadata.\n\nNo permission required (it's sandboxed per plugin — one plugin cannot\nsee another's keys)."
+      },
+      "package": 0
+    },
+    {
+      "name": "host-http",
+      "types": {
+        "request-options": 9,
+        "response": 10
+      },
+      "functions": {
+        "send": {
+          "name": "send",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "method",
+              "type": "string"
+            },
+            {
+              "name": "url",
+              "type": "string"
+            },
+            {
+              "name": "headers",
+              "type": 2
+            },
+            {
+              "name": "body",
+              "type": 4
+            },
+            {
+              "name": "options",
+              "type": 11
+            }
+          ],
+          "result": 12,
+          "docs": {
+            "contents": "Perform an HTTP request. `url` must be absolute http(s)."
+          }
+        }
+      },
+      "docs": {
+        "contents": "Host-provided network capabilities.\n\nThese interfaces are permission-gated: the host only honors them for\nplugins whose manifest entry grants the corresponding permission\n(\"http\" / \"tcp\"). Without the grant, every call fails with a\n\"permission denied\" error — the interfaces are always linkable so guests\ncan be compiled uniformly.\nA simple synchronous outbound HTTP client (permission: \"http\").\n\nThis is deliberately much smaller than wasi:http — request and response\nbodies are byte buffers, not streams. It is sized for API clients (ACME\nDNS providers, object storage, webhooks), not for proxying large\npayloads."
+      },
+      "package": 0
+    },
+    {
+      "name": "host-tcp",
+      "types": {
+        "connection": 13
+      },
+      "functions": {
+        "[static]connection.connect": {
+          "name": "[static]connection.connect",
+          "kind": {
+            "static": 13
+          },
+          "params": [
+            {
+              "name": "address",
+              "type": "string"
+            },
+            {
+              "name": "timeout-ms",
+              "type": 7
+            }
+          ],
+          "result": 15,
+          "docs": {
+            "contents": "Dial `address` in Go net.Dial form, e.g. \"redis.internal:6379\"."
+          }
+        },
+        "[method]connection.read": {
+          "name": "[method]connection.read",
+          "kind": {
+            "method": 13
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 16
+            },
+            {
+              "name": "max",
+              "type": "u64"
+            }
+          ],
+          "result": 18,
+          "docs": {
+            "contents": "Read up to `max` bytes. Blocks until at least one byte is\navailable, EOF, or the read deadline. Returns (data, eof)."
+          }
+        },
+        "[method]connection.write": {
+          "name": "[method]connection.write",
+          "kind": {
+            "method": 13
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 16
+            },
+            {
+              "name": "data",
+              "type": 4
+            }
+          ],
+          "result": 19,
+          "docs": {
+            "contents": "Write bytes, returning the number written."
+          }
+        },
+        "[method]connection.set-deadline-ms": {
+          "name": "[method]connection.set-deadline-ms",
+          "kind": {
+            "method": 13
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 16
+            },
+            {
+              "name": "ms",
+              "type": "u32"
+            }
+          ],
+          "docs": {
+            "contents": "Set a deadline for subsequent reads/writes, in milliseconds from\nnow. 0 clears the deadline."
+          }
+        },
+        "[method]connection.close": {
+          "name": "[method]connection.close",
+          "kind": {
+            "method": 13
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 16
+            }
+          ]
+        }
+      },
+      "docs": {
+        "contents": "Raw TCP connections (permission: \"tcp\"), for protocols that are not\nHTTP (redis, memcached, SMTP, ...). Synchronous, one connection per\nresource handle."
+      },
+      "package": 0
+    },
+    {
+      "name": "manifest",
+      "types": {
+        "directive-position": 20,
+        "caddyfile-order": 21,
+        "module-decl": 23,
+        "plugin-info": 25
+      },
+      "functions": {
+        "describe": {
+          "name": "describe",
+          "kind": "freestanding",
+          "params": [],
+          "result": 25
+        }
+      },
+      "docs": {
+        "contents": "Core guest interfaces every plugin must export: identity and lifecycle.\nPlugin self-description. The host calls `describe` once at load time to\ndiscover which Caddy modules this binary provides, and registers a\ndynamic Caddy module for each declared ID."
+      },
+      "package": 0
+    },
+    {
+      "name": "types",
+      "types": {
+        "json": 26,
+        "epoch-ms": 27,
+        "plugin-error": 29,
+        "key-info": 30,
+        "event": 31
+      },
+      "functions": {},
+      "docs": {
+        "contents": "Shared basic types used across interfaces."
+      },
+      "package": 0
+    },
+    {
+      "name": "host-storage",
+      "types": {
+        "key-info": 32
+      },
+      "functions": {
+        "store": {
+          "name": "store",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": 4
+            }
+          ],
+          "result": 33
+        },
+        "load": {
+          "name": "load",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "result": 34
+        },
+        "delete": {
+          "name": "delete",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "result": 33
+        },
+        "exists": {
+          "name": "exists",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "result": "bool"
+        },
+        "list-keys": {
+          "name": "list-keys",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "prefix",
+              "type": "string"
+            },
+            {
+              "name": "recursive",
+              "type": "bool"
+            }
+          ],
+          "result": 36
+        },
+        "stat": {
+          "name": "stat",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "result": 37
+        },
+        "lock": {
+          "name": "lock",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "result": 33,
+          "docs": {
+            "contents": "Acquire a cluster-wide lock. Blocks until acquired or the host's\ncontext is cancelled."
+          }
+        },
+        "unlock": {
+          "name": "unlock",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "result": 33
+        }
+      },
+      "docs": {
+        "contents": "Access to Caddy's configured storage (mirrors `certmagic.Storage`).\n\nThis lets plugins persist state in whatever storage backend the Caddy\ninstance is configured with (filesystem, consul, redis, ...), including\ncluster-safe locking."
+      },
+      "package": 0
+    },
+    {
+      "name": "host-events",
+      "types": {
+        "json": 38
+      },
+      "functions": {
+        "emit": {
+          "name": "emit",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "data",
+              "type": 38
+            }
+          ],
+          "result": 33
+        }
+      },
+      "docs": {
+        "contents": "Emit events onto Caddy's event bus (mirrors `caddyevents.App.Emit`)."
+      },
+      "package": 0
+    },
+    {
+      "name": "http-types",
+      "types": {
+        "plugin-error": 39,
+        "request": 40,
+        "response-writer": 41,
+        "buffered-response": 42
+      },
+      "functions": {
+        "[method]request.method": {
+          "name": "[method]request.method",
+          "kind": {
+            "method": 40
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 43
+            }
+          ],
+          "result": "string"
+        },
+        "[method]request.uri": {
+          "name": "[method]request.uri",
+          "kind": {
+            "method": 40
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 43
+            }
+          ],
+          "result": "string",
+          "docs": {
+            "contents": "Full request URI (path?query)."
+          }
+        },
+        "[method]request.path": {
+          "name": "[method]request.path",
+          "kind": {
+            "method": 40
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 43
+            }
+          ],
+          "result": "string"
+        },
+        "[method]request.query": {
+          "name": "[method]request.query",
+          "kind": {
+            "method": 40
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 43
+            }
+          ],
+          "result": "string"
+        },
+        "[method]request.protocol": {
+          "name": "[method]request.protocol",
+          "kind": {
+            "method": 40
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 43
+            }
+          ],
+          "result": "string",
+          "docs": {
+            "contents": "e.g. \"HTTP/1.1\", \"HTTP/2.0\"."
+          }
+        },
+        "[method]request.host": {
+          "name": "[method]request.host",
+          "kind": {
+            "method": 40
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 43
+            }
+          ],
+          "result": "string"
+        },
+        "[method]request.remote-addr": {
+          "name": "[method]request.remote-addr",
+          "kind": {
+            "method": 40
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 43
+            }
+          ],
+          "result": "string"
+        },
+        "[method]request.headers": {
+          "name": "[method]request.headers",
+          "kind": {
+            "method": 40
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 43
+            }
+          ],
+          "result": 2,
+          "docs": {
+            "contents": "All header values, flattened."
+          }
+        },
+        "[method]request.header": {
+          "name": "[method]request.header",
+          "kind": {
+            "method": 40
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 43
+            },
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "result": 35,
+          "docs": {
+            "contents": "Values for a single header name (canonicalized)."
+          }
+        },
+        "[method]request.set-header": {
+          "name": "[method]request.set-header",
+          "kind": {
+            "method": 40
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 43
+            },
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "string"
+            }
+          ]
+        },
+        "[method]request.add-header": {
+          "name": "[method]request.add-header",
+          "kind": {
+            "method": 40
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 43
+            },
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "string"
+            }
+          ]
+        },
+        "[method]request.remove-header": {
+          "name": "[method]request.remove-header",
+          "kind": {
+            "method": 40
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 43
+            },
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ]
+        },
+        "[method]request.set-uri": {
+          "name": "[method]request.set-uri",
+          "kind": {
+            "method": 40
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 43
+            },
+            {
+              "name": "uri",
+              "type": "string"
+            }
+          ],
+          "docs": {
+            "contents": "Rewrite the request URI (affects downstream handlers)."
+          }
+        },
+        "[method]request.set-method": {
+          "name": "[method]request.set-method",
+          "kind": {
+            "method": 40
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 43
+            },
+            {
+              "name": "method",
+              "type": "string"
+            }
+          ]
+        },
+        "[method]request.read-body": {
+          "name": "[method]request.read-body",
+          "kind": {
+            "method": 40
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 43
+            },
+            {
+              "name": "max",
+              "type": "u64"
+            }
+          ],
+          "result": 18,
+          "docs": {
+            "contents": "Read up to `max` bytes of the request body. Returns the bytes read\nand whether the body has reached EOF."
+          }
+        },
+        "[method]request.replace": {
+          "name": "[method]request.replace",
+          "kind": {
+            "method": 40
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 43
+            },
+            {
+              "name": "input",
+              "type": "string"
+            },
+            {
+              "name": "empty",
+              "type": "string"
+            }
+          ],
+          "result": "string",
+          "docs": {
+            "contents": "Replace placeholders using the request-scoped replacer\n(e.g. `{http.request.host}`)."
+          }
+        },
+        "[method]request.get-var": {
+          "name": "[method]request.get-var",
+          "kind": {
+            "method": 40
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 43
+            },
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "result": 3,
+          "docs": {
+            "contents": "Get/set request-scoped variables (caddyhttp vars middleware),\nvalues serialized as JSON."
+          }
+        },
+        "[method]request.set-var": {
+          "name": "[method]request.set-var",
+          "kind": {
+            "method": 40
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 43
+            },
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "string"
+            }
+          ]
+        },
+        "[method]response-writer.set-header": {
+          "name": "[method]response-writer.set-header",
+          "kind": {
+            "method": 41
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 44
+            },
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "string"
+            }
+          ],
+          "docs": {
+            "contents": "Set a response header. Must be called before write-status/write."
+          }
+        },
+        "[method]response-writer.add-header": {
+          "name": "[method]response-writer.add-header",
+          "kind": {
+            "method": 41
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 44
+            },
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": "string"
+            }
+          ]
+        },
+        "[method]response-writer.remove-header": {
+          "name": "[method]response-writer.remove-header",
+          "kind": {
+            "method": 41
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 44
+            },
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ]
+        },
+        "[method]response-writer.write-status": {
+          "name": "[method]response-writer.write-status",
+          "kind": {
+            "method": 41
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 44
+            },
+            {
+              "name": "status",
+              "type": "u16"
+            }
+          ],
+          "docs": {
+            "contents": "Write the status code. Implicitly 200 on first write otherwise."
+          }
+        },
+        "[method]response-writer.write": {
+          "name": "[method]response-writer.write",
+          "kind": {
+            "method": 41
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 44
+            },
+            {
+              "name": "data",
+              "type": 4
+            }
+          ],
+          "result": 19,
+          "docs": {
+            "contents": "Write body bytes. Returns bytes written."
+          }
+        },
+        "[method]response-writer.flush": {
+          "name": "[method]response-writer.flush",
+          "kind": {
+            "method": 41
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 44
+            }
+          ]
+        },
+        "[method]buffered-response.status": {
+          "name": "[method]buffered-response.status",
+          "kind": {
+            "method": 42
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 45
+            }
+          ],
+          "result": "u16"
+        },
+        "[method]buffered-response.headers": {
+          "name": "[method]buffered-response.headers",
+          "kind": {
+            "method": 42
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 45
+            }
+          ],
+          "result": 2
+        },
+        "[method]buffered-response.body": {
+          "name": "[method]buffered-response.body",
+          "kind": {
+            "method": 42
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 45
+            }
+          ],
+          "result": 4
+        },
+        "next": {
+          "name": "next",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "req",
+              "type": 43
+            },
+            {
+              "name": "resp",
+              "type": 44
+            }
+          ],
+          "result": 46,
+          "docs": {
+            "contents": "Invoke the next handler in the middleware chain for this request.\nThis is what makes wasm handlers true middleware rather than\nterminal-only handlers."
+          }
+        },
+        "next-buffered": {
+          "name": "next-buffered",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "req",
+              "type": 43
+            }
+          ],
+          "result": 48,
+          "docs": {
+            "contents": "Invoke the next handler with a recording response writer instead of\nthe real one. Nothing is sent to the client; the guest receives the\nbuffered response and is responsible for writing output to the real\n`response-writer` (headers from the buffered response are NOT copied\nautomatically). The buffered body is capped by the host (default\n16 MiB); larger downstream responses fail the call."
+          }
+        }
+      },
+      "docs": {
+        "contents": "HTTP request/response resources, owned by the host.\n\nThese are handles into the live `*http.Request` and\n`http.ResponseWriter` — reads and writes go straight through to Caddy\nwith no copying of the full request across the boundary."
+      },
+      "package": 0
+    },
+    {
+      "name": "lifecycle",
+      "types": {
+        "json": 49,
+        "instance": 50
+      },
+      "functions": {
+        "[static]instance.provision": {
+          "name": "[static]instance.provision",
+          "kind": {
+            "static": 50
+          },
+          "params": [
+            {
+              "name": "module-id",
+              "type": "string"
+            },
+            {
+              "name": "config",
+              "type": 49
+            }
+          ],
+          "result": 52,
+          "docs": {
+            "contents": "Provision a new instance of the module with the given ID from its\nJSON config (= caddy.Provisioner)."
+          }
+        },
+        "[method]instance.validate": {
+          "name": "[method]instance.validate",
+          "kind": {
+            "method": 50
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 53
+            }
+          ],
+          "result": 33,
+          "docs": {
+            "contents": "= caddy.Validator."
+          }
+        },
+        "[method]instance.cleanup": {
+          "name": "[method]instance.cleanup",
+          "kind": {
+            "method": 50
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 53
+            }
+          ],
+          "docs": {
+            "contents": "= caddy.CleanerUpper. Called when the config is unloaded."
+          }
+        }
+      },
+      "docs": {
+        "contents": "Module instance lifecycle, mirroring caddy.Provisioner / caddy.Validator /\ncaddy.CleanerUpper. The host creates one `instance` per provisioned\nCaddy module and passes it back into every extension-point call."
+      },
+      "package": 0
+    },
+    {
+      "name": "dns-provider",
+      "types": {
+        "instance": 54,
+        "dns-record": 55
+      },
+      "functions": {
+        "get-records": {
+          "name": "get-records",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 56
+            },
+            {
+              "name": "zone",
+              "type": "string"
+            }
+          ],
+          "result": 58,
+          "docs": {
+            "contents": "= libdns.RecordGetter."
+          }
+        },
+        "append-records": {
+          "name": "append-records",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 56
+            },
+            {
+              "name": "zone",
+              "type": "string"
+            },
+            {
+              "name": "records",
+              "type": 57
+            }
+          ],
+          "result": 58,
+          "docs": {
+            "contents": "= libdns.RecordAppender."
+          }
+        },
+        "set-records": {
+          "name": "set-records",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 56
+            },
+            {
+              "name": "zone",
+              "type": "string"
+            },
+            {
+              "name": "records",
+              "type": 57
+            }
+          ],
+          "result": 58,
+          "docs": {
+            "contents": "= libdns.RecordSetter."
+          }
+        },
+        "delete-records": {
+          "name": "delete-records",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 56
+            },
+            {
+              "name": "zone",
+              "type": "string"
+            },
+            {
+              "name": "records",
+              "type": 57
+            }
+          ],
+          "result": 58,
+          "docs": {
+            "contents": "= libdns.RecordDeleter."
+          }
+        }
+      },
+      "docs": {
+        "contents": "DNS provider (= libdns-style providers via `dns.providers.*` modules).\n\nThis unlocks the largest Caddy plugin category — ACME DNS-01 challenge\nproviders — as sandboxed wasm: a provider is pure API glue over the\nregistrar's HTTP API, so a guest needs only this export plus the\n`host-http` import (permission: \"http\").\n\nSemantics mirror libdns (https://github.com/libdns/libdns): all\noperations are scoped to a zone (a fully-qualified domain name ending in\na dot), record names are relative to the zone, and each call returns the\nrecords that were actually affected."
+      },
+      "package": 0
+    },
+    {
+      "name": "event-handler",
+      "types": {
+        "instance": 59,
+        "event": 60,
+        "handler-error": 61
+      },
+      "functions": {
+        "handle": {
+          "name": "handle",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 62
+            },
+            {
+              "name": "evt",
+              "type": 60
+            }
+          ],
+          "result": 63
+        }
+      },
+      "docs": {
+        "contents": "Event handler (= caddyevents handler modules, `events.handlers.*`)."
+      },
+      "package": 0
+    },
+    {
+      "name": "fs",
+      "types": {
+        "instance": 64,
+        "epoch-ms": 65,
+        "file-info": 66,
+        "file": 67
+      },
+      "functions": {
+        "[method]file.read": {
+          "name": "[method]file.read",
+          "kind": {
+            "method": 67
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 68
+            },
+            {
+              "name": "max",
+              "type": "u64"
+            }
+          ],
+          "result": 18,
+          "docs": {
+            "contents": "Read up to `max` bytes. Returns bytes and whether EOF was reached."
+          }
+        },
+        "[method]file.seek": {
+          "name": "[method]file.seek",
+          "kind": {
+            "method": 67
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 68
+            },
+            {
+              "name": "offset",
+              "type": "s64"
+            },
+            {
+              "name": "whence",
+              "type": "u8"
+            }
+          ],
+          "result": 19,
+          "docs": {
+            "contents": "Seek within the file. whence: 0 = start, 1 = current, 2 = end.\nOptional: guests may return an error, which disables HTTP range\nrequests for files from this provider."
+          }
+        },
+        "[method]file.stat": {
+          "name": "[method]file.stat",
+          "kind": {
+            "method": 67
+          },
+          "params": [
+            {
+              "name": "self",
+              "type": 68
+            }
+          ],
+          "result": 69
+        },
+        "open": {
+          "name": "open",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 70
+            },
+            {
+              "name": "path",
+              "type": "string"
+            }
+          ],
+          "result": 72
+        },
+        "stat": {
+          "name": "stat",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 70
+            },
+            {
+              "name": "path",
+              "type": "string"
+            }
+          ],
+          "result": 69
+        },
+        "read-dir": {
+          "name": "read-dir",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 70
+            },
+            {
+              "name": "path",
+              "type": "string"
+            }
+          ],
+          "result": 74
+        }
+      },
+      "docs": {
+        "contents": "Filesystem provider (= io/fs.FS via caddy.fs modules, `caddy.fs.*`).\n\nLets wasm plugins back Caddy's file server (or any module that takes an\n`fs` config) with arbitrary sources: object storage, databases, archives,\ngenerated content, ..."
+      },
+      "package": 0
+    },
+    {
+      "name": "upstream-source",
+      "types": {
+        "instance": 75,
+        "request": 76,
+        "upstream": 77
+      },
+      "functions": {
+        "get-upstreams": {
+          "name": "get-upstreams",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 78
+            },
+            {
+              "name": "req",
+              "type": 79
+            }
+          ],
+          "result": 81,
+          "docs": {
+            "contents": "Called by reverse_proxy on every request to get the current backends.\nThe request handle provides access to Host, path, headers, etc. so\nthe plugin can route by request attributes."
+          }
+        }
+      },
+      "docs": {
+        "contents": "Dynamic upstream source (= reverseproxy.UpstreamSource, for modules in\n`http.reverse_proxy.upstreams.*`).\n\nThis lets wasm plugins act as dynamic backends for Caddy's reverse_proxy:\ngiven an incoming request, return the list of backend addresses to proxy\nto. Combined with host-http and host-kv, a plugin can poll a service\nregistry and cache the results with TTL-based refresh."
+      },
+      "package": 0
+    },
+    {
+      "name": "http-handler",
+      "types": {
+        "instance": 82,
+        "request": 83,
+        "response-writer": 84,
+        "plugin-error": 85
+      },
+      "functions": {
+        "serve": {
+          "name": "serve",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 86
+            },
+            {
+              "name": "req",
+              "type": 87
+            },
+            {
+              "name": "resp",
+              "type": 88
+            }
+          ],
+          "result": 89,
+          "docs": {
+            "contents": "Handle a request. Call `http-types.next` to continue the middleware\nchain; don't call it to short-circuit."
+          }
+        }
+      },
+      "docs": {
+        "contents": "HTTP extension points.\n= caddyhttp.MiddlewareHandler, for modules in `http.handlers.*`."
+      },
+      "package": 0
+    },
+    {
+      "name": "http-matcher",
+      "types": {
+        "instance": 90,
+        "request": 91
+      },
+      "functions": {
+        "matches": {
+          "name": "matches",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 92
+            },
+            {
+              "name": "req",
+              "type": 93
+            }
+          ],
+          "result": 94
+        }
+      },
+      "docs": {
+        "contents": "= caddyhttp.RequestMatcherWithError, for modules in `http.matchers.*`."
+      },
+      "package": 0
+    },
+    {
+      "name": "config",
+      "types": {
+        "json": 95,
+        "token": 96
+      },
+      "functions": {
+        "unmarshal-caddyfile": {
+          "name": "unmarshal-caddyfile",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "module-id",
+              "type": "string"
+            },
+            {
+              "name": "tokens",
+              "type": 97
+            }
+          ],
+          "result": 98
+        }
+      },
+      "docs": {
+        "contents": "Custom Caddyfile syntax (= caddyfile.Unmarshaler).\n\nThe host tokenizes the directive's segment of the Caddyfile and hands the\ntokens to the guest, which returns the module's JSON config. This lets\nwasm plugins define first-class Caddyfile directives without shipping a\nfull dispenser across the boundary."
+      },
+      "package": 0
+    },
+    {
+      "name": "storage-provider",
+      "types": {
+        "instance": 99,
+        "key-info": 100
+      },
+      "functions": {
+        "store": {
+          "name": "store",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 101
+            },
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "value",
+              "type": 4
+            }
+          ],
+          "result": 33
+        },
+        "load": {
+          "name": "load",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 101
+            },
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "result": 34
+        },
+        "delete": {
+          "name": "delete",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 101
+            },
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "result": 33
+        },
+        "exists": {
+          "name": "exists",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 101
+            },
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "result": "bool"
+        },
+        "list-keys": {
+          "name": "list-keys",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 101
+            },
+            {
+              "name": "prefix",
+              "type": "string"
+            },
+            {
+              "name": "recursive",
+              "type": "bool"
+            }
+          ],
+          "result": 36
+        },
+        "stat": {
+          "name": "stat",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 101
+            },
+            {
+              "name": "key",
+              "type": "string"
+            }
+          ],
+          "result": 102
+        },
+        "lock": {
+          "name": "lock",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 101
+            },
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "result": 33
+        },
+        "unlock": {
+          "name": "unlock",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 101
+            },
+            {
+              "name": "name",
+              "type": "string"
+            }
+          ],
+          "result": 33
+        }
+      },
+      "docs": {
+        "contents": "Storage backend provider (= certmagic.Storage via caddy.StorageConverter,\nfor modules in `caddy.storage.*`).\n\nThe mirror image of `host-storage`: instead of consuming Caddy's storage,\nthe plugin *is* the storage backend (e.g. a wasm driver for an unusual\ndatabase or service)."
+      },
+      "package": 0
+    },
+    {
+      "name": "tls-issuer",
+      "types": {
+        "instance": 103,
+        "json": 104,
+        "issued-certificate": 106
+      },
+      "functions": {
+        "issuer-key": {
+          "name": "issuer-key",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 107
+            }
+          ],
+          "result": "string",
+          "docs": {
+            "contents": "A unique, storage-safe key identifying this issuer configuration\n(= certmagic.Issuer.IssuerKey)."
+          }
+        },
+        "issue": {
+          "name": "issue",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 107
+            },
+            {
+              "name": "csr-der",
+              "type": 4
+            }
+          ],
+          "result": 108,
+          "docs": {
+            "contents": "Issue a certificate for the given DER-encoded CSR."
+          }
+        }
+      },
+      "docs": {
+        "contents": "TLS extension points.\nCertificate issuer (= certmagic.Issuer, for modules in `tls.issuance.*`).\n\nCombined with `host-storage`, this is enough to implement custom CAs,\ninternal PKI bridges, or exotic ACME-alikes entirely in wasm."
+      },
+      "package": 0
+    },
+    {
+      "name": "tls-cert-loader",
+      "types": {
+        "instance": 109,
+        "certificate-key-pair": 110
+      },
+      "functions": {
+        "load-certificates": {
+          "name": "load-certificates",
+          "kind": "freestanding",
+          "params": [
+            {
+              "name": "inst",
+              "type": 111
+            }
+          ],
+          "result": 113
+        }
+      },
+      "docs": {
+        "contents": "Certificate loader (= caddytls.CertificateLoader, for modules in\n`tls.certificates.*`)."
+      },
+      "package": 0
+    }
+  ],
+  "types": [
+    {
+      "name": "level",
+      "kind": {
+        "enum": {
+          "cases": [
+            {
+              "name": "debug"
+            },
+            {
+              "name": "info"
+            },
+            {
+              "name": "warn"
+            },
+            {
+              "name": "error"
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 0
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "tuple": {
+          "types": [
+            "string",
+            "string"
+          ]
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "list": 1
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "option": "string"
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "list": "u8"
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "option": 4
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "option": "u64"
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "option": "u32"
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "option": "bool"
+      },
+      "owner": null
+    },
+    {
+      "name": "request-options",
+      "kind": {
+        "record": {
+          "fields": [
+            {
+              "name": "timeout-ms",
+              "type": 7,
+              "docs": {
+                "contents": "Total request timeout. Default: 30000."
+              }
+            },
+            {
+              "name": "max-response-bytes",
+              "type": 6,
+              "docs": {
+                "contents": "Cap on response body size. Default: 16 MiB. Responses larger than\nthis fail the call."
+              }
+            },
+            {
+              "name": "follow-redirects",
+              "type": 8,
+              "docs": {
+                "contents": "Follow redirects (default: true, max 10 hops)."
+              }
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 3
+      }
+    },
+    {
+      "name": "response",
+      "kind": {
+        "record": {
+          "fields": [
+            {
+              "name": "status",
+              "type": "u16"
+            },
+            {
+              "name": "headers",
+              "type": 2
+            },
+            {
+              "name": "body",
+              "type": 4
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 3
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "option": 9
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": 10,
+          "err": "string"
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "connection",
+      "kind": "resource",
+      "owner": {
+        "interface": 4
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "own": 13
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": 14,
+          "err": "string"
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 13
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "tuple": {
+          "types": [
+            4,
+            "bool"
+          ]
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": 17,
+          "err": "string"
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": "u64",
+          "err": "string"
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "directive-position",
+      "kind": {
+        "enum": {
+          "cases": [
+            {
+              "name": "before"
+            },
+            {
+              "name": "after"
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 5
+      }
+    },
+    {
+      "name": "caddyfile-order",
+      "kind": {
+        "record": {
+          "fields": [
+            {
+              "name": "position",
+              "type": 20
+            },
+            {
+              "name": "relative-to",
+              "type": "string",
+              "docs": {
+                "contents": "A standard-distribution directive name, e.g. \"respond\",\n\"file_server\", \"header\"."
+              }
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 5
+      },
+      "docs": {
+        "contents": "Caddyfile directive ordering, mirroring Caddy's\nhttpcaddyfile.RegisterDirectiveOrder: a position relative to a\ndirective from the STANDARD distribution (Caddy deliberately forbids\nordering relative to other plugins, since plugin load order is not\nguaranteed). Users can always override with the `order` global option."
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "option": 21
+      },
+      "owner": null
+    },
+    {
+      "name": "module-decl",
+      "kind": {
+        "record": {
+          "fields": [
+            {
+              "name": "id",
+              "type": "string",
+              "docs": {
+                "contents": "Full Caddy module ID, e.g. `http.handlers.foo`. The namespace\nprefix determines which extension-point interface the host will\ninvoke for instances of this module:\n\n  http.handlers.*     -> http-handler\n  http.matchers.*     -> http-matcher\n  caddy.fs.*          -> fs\n  tls.issuance.*      -> tls-issuer\n  tls.certificates.*  -> tls-cert-loader\n  caddy.storage.*     -> storage-provider\n  events.handlers.*   -> event-handler\n  dns.providers.*     -> dns-provider\n  http.reverse_proxy.upstreams.* -> upstream-source"
+              }
+            },
+            {
+              "name": "docs",
+              "type": 3,
+              "docs": {
+                "contents": "Optional human-readable description."
+              }
+            },
+            {
+              "name": "caddyfile-order",
+              "type": 22,
+              "docs": {
+                "contents": "For `http.handlers.*` modules that also export the config\ninterface: where this module's Caddyfile directive should be\nordered. Absent = host default (before file_server)."
+              }
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 5
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "list": 23
+      },
+      "owner": null
+    },
+    {
+      "name": "plugin-info",
+      "kind": {
+        "record": {
+          "fields": [
+            {
+              "name": "name",
+              "type": "string",
+              "docs": {
+                "contents": "Plugin name, for diagnostics."
+              }
+            },
+            {
+              "name": "version",
+              "type": 3
+            },
+            {
+              "name": "modules",
+              "type": 24
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 5
+      }
+    },
+    {
+      "name": "json",
+      "kind": {
+        "type": "string"
+      },
+      "owner": {
+        "interface": 6
+      },
+      "docs": {
+        "contents": "JSON-encoded text. Caddy module configs are JSON documents."
+      }
+    },
+    {
+      "name": "epoch-ms",
+      "kind": {
+        "type": "s64"
+      },
+      "owner": {
+        "interface": 6
+      },
+      "docs": {
+        "contents": "Milliseconds since the Unix epoch (UTC)."
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "option": "u16"
+      },
+      "owner": null
+    },
+    {
+      "name": "plugin-error",
+      "kind": {
+        "record": {
+          "fields": [
+            {
+              "name": "message",
+              "type": "string"
+            },
+            {
+              "name": "status",
+              "type": 28
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 6
+      },
+      "docs": {
+        "contents": "An error returned from a plugin, with an optional HTTP status hint.\n\nWhen returned from an HTTP handler this maps to\n`caddyhttp.Error(status, err)` on the host side."
+      }
+    },
+    {
+      "name": "key-info",
+      "kind": {
+        "record": {
+          "fields": [
+            {
+              "name": "key",
+              "type": "string"
+            },
+            {
+              "name": "modified",
+              "type": 27
+            },
+            {
+              "name": "size",
+              "type": "s64"
+            },
+            {
+              "name": "terminal",
+              "type": "bool",
+              "docs": {
+                "contents": "True if the key is a leaf (a value, not a directory-like prefix)."
+              }
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 6
+      },
+      "docs": {
+        "contents": "A key stored in a storage backend (mirrors `certmagic.KeyInfo`)."
+      }
+    },
+    {
+      "name": "event",
+      "kind": {
+        "record": {
+          "fields": [
+            {
+              "name": "id",
+              "type": "string",
+              "docs": {
+                "contents": "Unique event ID (UUID)."
+              }
+            },
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "timestamp",
+              "type": 27
+            },
+            {
+              "name": "origin",
+              "type": "string",
+              "docs": {
+                "contents": "The module ID of the event's origin."
+              }
+            },
+            {
+              "name": "data",
+              "type": 26,
+              "docs": {
+                "contents": "Event data serialized as JSON."
+              }
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 6
+      },
+      "docs": {
+        "contents": "An event on Caddy's event bus (mirrors `caddyevents.Event`)."
+      }
+    },
+    {
+      "name": "key-info",
+      "kind": {
+        "type": 30
+      },
+      "owner": {
+        "interface": 7
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": null,
+          "err": "string"
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": 4,
+          "err": "string"
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "list": "string"
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": 35,
+          "err": "string"
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": 32,
+          "err": "string"
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "json",
+      "kind": {
+        "type": 26
+      },
+      "owner": {
+        "interface": 8
+      }
+    },
+    {
+      "name": "plugin-error",
+      "kind": {
+        "type": 29
+      },
+      "owner": {
+        "interface": 9
+      }
+    },
+    {
+      "name": "request",
+      "kind": "resource",
+      "owner": {
+        "interface": 9
+      }
+    },
+    {
+      "name": "response-writer",
+      "kind": "resource",
+      "owner": {
+        "interface": 9
+      }
+    },
+    {
+      "name": "buffered-response",
+      "kind": "resource",
+      "owner": {
+        "interface": 9
+      },
+      "docs": {
+        "contents": "A fully-buffered downstream response, produced by `next-buffered`.\nThis is what enables response-rewriting middleware (replace-response,\ncaching, compression): inspect status/headers/body, then write a\n(possibly modified) response through the real `response-writer`."
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 40
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 41
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 42
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": null,
+          "err": 39
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "own": 42
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": 47,
+          "err": 39
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "json",
+      "kind": {
+        "type": 26
+      },
+      "owner": {
+        "interface": 10
+      }
+    },
+    {
+      "name": "instance",
+      "kind": "resource",
+      "owner": {
+        "interface": 10
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "own": 50
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": 51,
+          "err": "string"
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 50
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "instance",
+      "kind": {
+        "type": 50
+      },
+      "owner": {
+        "interface": 11
+      }
+    },
+    {
+      "name": "dns-record",
+      "kind": {
+        "record": {
+          "fields": [
+            {
+              "name": "rr-type",
+              "type": "string",
+              "docs": {
+                "contents": "RR type, e.g. \"TXT\", \"A\", \"CNAME\"."
+              }
+            },
+            {
+              "name": "name",
+              "type": "string",
+              "docs": {
+                "contents": "Name relative to the zone (e.g. \"_acme-challenge.www\")."
+              }
+            },
+            {
+              "name": "value",
+              "type": "string"
+            },
+            {
+              "name": "ttl-seconds",
+              "type": "u32"
+            },
+            {
+              "name": "priority",
+              "type": 28,
+              "docs": {
+                "contents": "Priority for types that use it (MX, SRV, ...)."
+              }
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 11
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 54
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "list": 55
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": 57,
+          "err": "string"
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "instance",
+      "kind": {
+        "type": 50
+      },
+      "owner": {
+        "interface": 12
+      }
+    },
+    {
+      "name": "event",
+      "kind": {
+        "type": 31
+      },
+      "owner": {
+        "interface": 12
+      }
+    },
+    {
+      "name": "handler-error",
+      "kind": {
+        "variant": {
+          "cases": [
+            {
+              "name": "aborted",
+              "type": null,
+              "docs": {
+                "contents": "Abort the event (= caddyevents.ErrAborted)."
+              }
+            },
+            {
+              "name": "message",
+              "type": "string",
+              "docs": {
+                "contents": "Any other failure."
+              }
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 12
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 59
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": null,
+          "err": 61
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "instance",
+      "kind": {
+        "type": 50
+      },
+      "owner": {
+        "interface": 13
+      }
+    },
+    {
+      "name": "epoch-ms",
+      "kind": {
+        "type": 27
+      },
+      "owner": {
+        "interface": 13
+      }
+    },
+    {
+      "name": "file-info",
+      "kind": {
+        "record": {
+          "fields": [
+            {
+              "name": "name",
+              "type": "string"
+            },
+            {
+              "name": "size",
+              "type": "u64"
+            },
+            {
+              "name": "mode",
+              "type": "u32",
+              "docs": {
+                "contents": "Unix-style mode bits."
+              }
+            },
+            {
+              "name": "mod-time",
+              "type": 65
+            },
+            {
+              "name": "dir",
+              "type": "bool"
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 13
+      }
+    },
+    {
+      "name": "file",
+      "kind": "resource",
+      "owner": {
+        "interface": 13
+      },
+      "docs": {
+        "contents": "An open file, owned by the guest."
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 67
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": 66,
+          "err": "string"
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 64
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "own": 67
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": 71,
+          "err": "string"
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "list": 66
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": 73,
+          "err": "string"
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "instance",
+      "kind": {
+        "type": 50
+      },
+      "owner": {
+        "interface": 14
+      }
+    },
+    {
+      "name": "request",
+      "kind": {
+        "type": 40
+      },
+      "owner": {
+        "interface": 14
+      }
+    },
+    {
+      "name": "upstream",
+      "kind": {
+        "record": {
+          "fields": [
+            {
+              "name": "dial",
+              "type": "string",
+              "docs": {
+                "contents": "Network address to dial, e.g. \"192.168.1.10:8080\" or \"unix//tmp/app.sock\"."
+              }
+            },
+            {
+              "name": "max-requests",
+              "type": "u32",
+              "docs": {
+                "contents": "Optional maximum concurrent requests to this upstream. 0 = unlimited."
+              }
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 14
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 75
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 76
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "list": 77
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": 80,
+          "err": "string"
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "instance",
+      "kind": {
+        "type": 50
+      },
+      "owner": {
+        "interface": 15
+      }
+    },
+    {
+      "name": "request",
+      "kind": {
+        "type": 40
+      },
+      "owner": {
+        "interface": 15
+      }
+    },
+    {
+      "name": "response-writer",
+      "kind": {
+        "type": 41
+      },
+      "owner": {
+        "interface": 15
+      }
+    },
+    {
+      "name": "plugin-error",
+      "kind": {
+        "type": 29
+      },
+      "owner": {
+        "interface": 15
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 82
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 83
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 84
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": null,
+          "err": 85
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "instance",
+      "kind": {
+        "type": 50
+      },
+      "owner": {
+        "interface": 16
+      }
+    },
+    {
+      "name": "request",
+      "kind": {
+        "type": 40
+      },
+      "owner": {
+        "interface": 16
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 90
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 91
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": "bool",
+          "err": "string"
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "json",
+      "kind": {
+        "type": 26
+      },
+      "owner": {
+        "interface": 17
+      }
+    },
+    {
+      "name": "token",
+      "kind": {
+        "record": {
+          "fields": [
+            {
+              "name": "file",
+              "type": "string"
+            },
+            {
+              "name": "line",
+              "type": "u32"
+            },
+            {
+              "name": "text",
+              "type": "string"
+            },
+            {
+              "name": "quoted",
+              "type": "bool",
+              "docs": {
+                "contents": "True if the token was quoted (or heredoc'd) in the Caddyfile.\nNeeded to distinguish a literal \"{\" argument from a block brace\n(mirrors caddyfile.Token.Quoted())."
+              }
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 17
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "list": 96
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": 95,
+          "err": "string"
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "instance",
+      "kind": {
+        "type": 50
+      },
+      "owner": {
+        "interface": 18
+      }
+    },
+    {
+      "name": "key-info",
+      "kind": {
+        "type": 30
+      },
+      "owner": {
+        "interface": 18
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 99
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": 100,
+          "err": "string"
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "instance",
+      "kind": {
+        "type": 50
+      },
+      "owner": {
+        "interface": 19
+      }
+    },
+    {
+      "name": "json",
+      "kind": {
+        "type": 26
+      },
+      "owner": {
+        "interface": 19
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "option": 104
+      },
+      "owner": null
+    },
+    {
+      "name": "issued-certificate",
+      "kind": {
+        "record": {
+          "fields": [
+            {
+              "name": "certificate-pem",
+              "type": 4,
+              "docs": {
+                "contents": "PEM-encoded certificate (chain)."
+              }
+            },
+            {
+              "name": "metadata",
+              "type": 105,
+              "docs": {
+                "contents": "Optional metadata stored alongside the certificate."
+              }
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 19
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 103
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": 106,
+          "err": "string"
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": "instance",
+      "kind": {
+        "type": 50
+      },
+      "owner": {
+        "interface": 20
+      }
+    },
+    {
+      "name": "certificate-key-pair",
+      "kind": {
+        "record": {
+          "fields": [
+            {
+              "name": "certificate-pem",
+              "type": 4
+            },
+            {
+              "name": "key-pem",
+              "type": 4
+            },
+            {
+              "name": "tags",
+              "type": 35,
+              "docs": {
+                "contents": "Arbitrary tags used to select certificates."
+              }
+            }
+          ]
+        }
+      },
+      "owner": {
+        "interface": 20
+      }
+    },
+    {
+      "name": null,
+      "kind": {
+        "handle": {
+          "borrow": 109
+        }
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "list": 110
+      },
+      "owner": null
+    },
+    {
+      "name": null,
+      "kind": {
+        "result": {
+          "ok": 112,
+          "err": "string"
+        }
+      },
+      "owner": null
+    }
+  ],
+  "packages": [
+    {
+      "name": "caddy:plugin@0.1.0",
+      "docs": {
+        "contents": "caddy:plugin — a generic plugin interface for the Caddy web server.\n\nThis package mirrors Caddy's own extension model: a plugin declares one or\nmore Caddy modules (identified by namespaced IDs like `http.handlers.foo`,\n`caddy.fs.bar`, `tls.issuance.baz`), each configured with a JSON document,\nprovisioned/validated/cleaned-up by the host, and invoked through a\nnamespace-specific interface.\n\nA single wasm binary may export any subset of the extension-point\ninterfaces below; the host inspects the binary's exports and only wires up\nwhat is present."
+      },
+      "interfaces": {
+        "log": 0,
+        "replacer": 1,
+        "host-kv": 2,
+        "host-http": 3,
+        "host-tcp": 4,
+        "manifest": 5,
+        "types": 6,
+        "host-storage": 7,
+        "host-events": 8,
+        "http-types": 9,
+        "lifecycle": 10,
+        "dns-provider": 11,
+        "event-handler": 12,
+        "fs": 13,
+        "upstream-source": 14,
+        "http-handler": 15,
+        "http-matcher": 16,
+        "config": 17,
+        "storage-provider": 18,
+        "tls-issuer": 19,
+        "tls-cert-loader": 20
+      },
+      "worlds": {
+        "caddy-base": 0,
+        "http-handler-plugin": 1,
+        "http-matcher-plugin": 2,
+        "fs-plugin": 3,
+        "tls-issuer-plugin": 4,
+        "tls-cert-loader-plugin": 5,
+        "storage-plugin": 6,
+        "event-plugin": 7,
+        "dns-provider-plugin": 8,
+        "upstream-source-plugin": 9,
+        "full-plugin": 10
+      }
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+/// caddy:plugin — a generic plugin interface for the Caddy web server.
+///
+/// This package mirrors Caddy's own extension model: a plugin declares one or
+/// more Caddy modules (identified by namespaced IDs like `http.handlers.foo`,
+/// `caddy.fs.bar`, `tls.issuance.baz`), each configured with a JSON document,
+/// provisioned/validated/cleaned-up by the host, and invoked through a
+/// namespace-specific interface.
+///
+/// A single wasm binary may export any subset of the extension-point
+/// interfaces below; the host inspects the binary's exports and only wires up
+/// what is present.
+package caddy:plugin@0.1.0;
+
+/// Shared basic types used across interfaces.
+interface types {
+  /// JSON-encoded text. Caddy module configs are JSON documents.
+  type json = string;
+
+  /// Milliseconds since the Unix epoch (UTC).
+  type epoch-ms = s64;
+
+  /// An error returned from a plugin, with an optional HTTP status hint.
+  ///
+  /// When returned from an HTTP handler this maps to
+  /// `caddyhttp.Error(status, err)` on the host side.
+  record plugin-error {
+    message: string,
+    status: option<u16>,
+  }
+
+  /// A key stored in a storage backend (mirrors `certmagic.KeyInfo`).
+  record key-info {
+    key: string,
+    modified: epoch-ms,
+    size: s64,
+    /// True if the key is a leaf (a value, not a directory-like prefix).
+    terminal: bool,
+  }
+
+  /// An event on Caddy's event bus (mirrors `caddyevents.Event`).
+  record event {
+    /// Unique event ID (UUID).
+    id: string,
+    name: string,
+    timestamp: epoch-ms,
+    /// The module ID of the event's origin.
+    origin: string,
+    /// Event data serialized as JSON.
+    data: json,
+  }
+}

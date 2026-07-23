@@ -1,0 +1,22 @@
+[package]
+name = "caddy-wit-jwt"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+wit-bindgen = "0.59"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+base64 = "0.22"
+hmac = "0.12"
+sha2 = "0.10"
+caddy-wit-caddyfile = { path = "../../../sdk/rust/caddyfile" }
+
+[profile.release]
+opt-level = "s"
+lto = true
+strip = true

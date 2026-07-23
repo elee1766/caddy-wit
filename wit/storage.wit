@@ -1,0 +1,19 @@
+/// Storage backend provider (= certmagic.Storage via caddy.StorageConverter,
+/// for modules in `caddy.storage.*`).
+///
+/// The mirror image of `host-storage`: instead of consuming Caddy's storage,
+/// the plugin *is* the storage backend (e.g. a wasm driver for an unusual
+/// database or service).
+interface storage-provider {
+  use lifecycle.{instance};
+  use types.{key-info};
+
+  store: func(inst: borrow<instance>, key: string, value: list<u8>) -> result<_, string>;
+  load: func(inst: borrow<instance>, key: string) -> result<list<u8>, string>;
+  delete: func(inst: borrow<instance>, key: string) -> result<_, string>;
+  exists: func(inst: borrow<instance>, key: string) -> bool;
+  list-keys: func(inst: borrow<instance>, prefix: string, recursive: bool) -> result<list<string>, string>;
+  stat: func(inst: borrow<instance>, key: string) -> result<key-info, string>;
+  lock: func(inst: borrow<instance>, name: string) -> result<_, string>;
+  unlock: func(inst: borrow<instance>, name: string) -> result<_, string>;
+}

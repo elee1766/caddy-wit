@@ -1,0 +1,63 @@
+/// Host-provided network capabilities.
+///
+/// These interfaces are permission-gated: the host only honors them for
+/// plugins whose manifest entry grants the corresponding permission
+/// ("http" / "tcp"). Without the grant, every call fails with a
+/// "permission denied" error — the interfaces are always linkable so guests
+/// can be compiled uniformly.
+
+/// A simple synchronous outbound HTTP client (permission: "http").
+///
+/// This is deliberately much smaller than wasi:http — request and response
+/// bodies are byte buffers, not streams. It is sized for API clients (ACME
+/// DNS providers, object storage, webhooks), not for proxying large
+/// payloads.
+interface host-http {
+  record request-options {
+    /// Total request timeout. Default: 30000.
+    timeout-ms: option<u32>,
+    /// Cap on response body size. Default: 16 MiB. Responses larger than
+    /// this fail the call.
+    max-response-bytes: option<u64>,
+    /// Follow redirects (default: true, max 10 hops).
+    follow-redirects: option<bool>,
+  }
+
+  record response {
+    status: u16,
+    headers: list<tuple<string, string>>,
+    body: list<u8>,
+  }
+
+  /// Perform an HTTP request. `url` must be absolute http(s).
+  send: func(
+    method: string,
+    url: string,
+    headers: list<tuple<string, string>>,
+    body: list<u8>,
+    options: option<request-options>,
+  ) -> result<response, string>;
+}
+
+/// Raw TCP connections (permission: "tcp"), for protocols that are not
+/// HTTP (redis, memcached, SMTP, ...). Synchronous, one connection per
+/// resource handle.
+interface host-tcp {
+  resource connection {
+    /// Dial `address` in Go net.Dial form, e.g. "redis.internal:6379".
+    connect: static func(address: string, timeout-ms: option<u32>) -> result<connection, string>;
+
+    /// Read up to `max` bytes. Blocks until at least one byte is
+    /// available, EOF, or the read deadline. Returns (data, eof).
+    read: func(max: u64) -> result<tuple<list<u8>, bool>, string>;
+
+    /// Write bytes, returning the number written.
+    write: func(data: list<u8>) -> result<u64, string>;
+
+    /// Set a deadline for subsequent reads/writes, in milliseconds from
+    /// now. 0 clears the deadline.
+    set-deadline-ms: func(ms: u32);
+
+    close: func();
+  }
+}

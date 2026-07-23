@@ -1,0 +1,20 @@
+/// HTTP extension points.
+
+/// = caddyhttp.MiddlewareHandler, for modules in `http.handlers.*`.
+interface http-handler {
+  use lifecycle.{instance};
+  use http-types.{request, response-writer};
+  use types.{plugin-error};
+
+  /// Handle a request. Call `http-types.next` to continue the middleware
+  /// chain; don't call it to short-circuit.
+  serve: func(inst: borrow<instance>, req: borrow<request>, resp: borrow<response-writer>) -> result<_, plugin-error>;
+}
+
+/// = caddyhttp.RequestMatcherWithError, for modules in `http.matchers.*`.
+interface http-matcher {
+  use lifecycle.{instance};
+  use http-types.{request};
+
+  matches: func(inst: borrow<instance>, req: borrow<request>) -> result<bool, string>;
+}
