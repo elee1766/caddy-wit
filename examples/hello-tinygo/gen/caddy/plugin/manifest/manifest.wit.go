@@ -90,6 +90,7 @@ type ModuleDecl struct {
 	// caddy.storage.*     -> storage-provider
 	// events.handlers.*   -> event-handler
 	// dns.providers.*     -> dns-provider
+	// http.reverse_proxy.upstreams.* -> upstream-source
 	ID string `json:"id"`
 
 	// Optional human-readable description.
